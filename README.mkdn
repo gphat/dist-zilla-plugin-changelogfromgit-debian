@@ -1,0 +1,32 @@
+# NAME
+
+Dist::Zilla::Plugin::ChangelogFromGit::Debian - Debian formatter for Changelogs
+
+# VERSION
+
+version 0.01
+
+# SYNOPSIS
+
+    [ChangelogFromGit]
+    max_age = 365
+    tag_regexp = ^\d+\.\d+$
+    file_name = debian/changelog
+    wrap_column = 72
+    formatter_class = Debian
+
+# DESCRIPTION
+
+Dist::Zilla::Plugin::ChangelogFromGit::Debian creates changelogs acceptable
+for Debian packages.
+
+# AUTHOR
+
+Cory G Watson <gphat@cpan.org>
+
+# COPYRIGHT AND LICENSE
+
+This software is copyright (c) 2011 by Infinity Interactive, Inc.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.

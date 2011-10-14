@@ -1,6 +1,8 @@
 package Dist::Zilla::Plugin::ChangelogFromGit::Debian;
 use Moose;
 
+# ABSTRACT: Debian formatter for Changelogs
+
 with 'Dist::Zilla::Plugin::ChangelogFromGit::Formatter';
 
 use DateTime::Format::Mail;
@@ -36,6 +38,22 @@ sub format {
 	
 	return $changelog;
 }
+
+=head1 SYNOPSIS
+
+    [ChangelogFromGit]
+    max_age = 365
+    tag_regexp = ^\d+\.\d+$
+    file_name = debian/changelog
+    wrap_column = 72
+    formatter_class = Debian
+
+=head1 DESCRIPTION
+
+Dist::Zilla::Plugin::ChangelogFromGit::Debian creates changelogs acceptable
+for Debian packages.
+
+=cut
 
 __PACKAGE__->meta->make_immutable;
 no Moose;

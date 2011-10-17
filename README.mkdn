@@ -8,16 +8,16 @@ version 0.01
 
 # SYNOPSIS
 
-    [ChangelogFromGit]
+    [ChangelogFromGit::Debian]
     max_age = 365
     tag_regexp = ^\d+\.\d+$
     file_name = debian/changelog
     wrap_column = 72
-    formatter_class = Debian
 
 # DESCRIPTION
 
-Dist::Zilla::Plugin::ChangelogFromGit::Debian creates changelogs acceptable
+Dist::Zilla::Plugin::ChangelogFromGit::Debian extends
+[Dist::Zilla::Plugin::ChangelogFromGit](http://search.cpan.org/perldoc?Dist::Zilla::Plugin::ChangelogFromGit) to create changelogs acceptable
 for Debian packages.
 
 # AUTHOR

@@ -3,25 +3,30 @@ use Moose;
 
 # ABSTRACT: Debian formatter for Changelogs
 
-with 'Dist::Zilla::Plugin::ChangelogFromGit::Formatter';
+extends 'Dist::Zilla::Plugin::ChangelogFromGit';
 
 use DateTime::Format::Mail;
 use Text::Wrap qw(wrap fill $columns $huge);
 
-sub format {
-    my ($self, $releases) = @_;
+sub render_changelog {
+    my ($self) = @_;
 
 	$Text::Wrap::huge    = 'wrap';
 	$Text::Wrap::columns = $self->wrap_column;
 	
 	my $changelog = '';
 	
-	foreach my $release (@{ $releases }) {
+	foreach my $release (reverse $self->all_releases) {
 
         # Don't output empty versions.
         next if $release->has_no_changes;
 
-		my $tag_line = $self->dist_name.' ('.$release->{version}.') stable; urgency=low';
+        my $version = $release->version;
+        if($version eq 'HEAD') {
+            $version = $self->zilla->version;
+        }
+
+		my $tag_line = $self->zilla->name.' ('.$version.') stable; urgency=low';
 		$changelog .= (
 			"$tag_line\n"
 		);
@@ -41,16 +46,16 @@ sub format {
 
 =head1 SYNOPSIS
 
-    [ChangelogFromGit]
+    [ChangelogFromGit::Debian]
     max_age = 365
     tag_regexp = ^\d+\.\d+$
     file_name = debian/changelog
     wrap_column = 72
-    formatter_class = Debian
 
 =head1 DESCRIPTION
 
-Dist::Zilla::Plugin::ChangelogFromGit::Debian creates changelogs acceptable
+Dist::Zilla::Plugin::ChangelogFromGit::Debian extends
+L<Dist::Zilla::Plugin::ChangelogFromGit> to create changelogs acceptable
 for Debian packages.
 
 =cut

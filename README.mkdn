@@ -4,7 +4,7 @@ Dist::Zilla::Plugin::ChangelogFromGit::Debian - Debian formatter for Changelogs
 
 # VERSION
 
-version 0.01
+version 0.03
 
 # SYNOPSIS
 
@@ -13,6 +13,7 @@ version 0.01
     tag_regexp = ^\d+\.\d+$
     file_name = debian/changelog
     wrap_column = 72
+    package_name = my-package # required!!
 
 # DESCRIPTION
 

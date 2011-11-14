@@ -8,6 +8,18 @@ extends 'Dist::Zilla::Plugin::ChangelogFromGit';
 use DateTime::Format::Mail;
 use Text::Wrap qw(wrap fill $columns $huge);
 
+has 'dist_name' => (
+    is => 'rw',
+    isa => 'Str',
+    default => 'stable'
+);
+
+has 'package_name' => (
+    is => 'rw',
+    isa => 'Str',
+    required => 1
+);
+
 sub render_changelog {
     my ($self) = @_;
 
@@ -26,7 +38,7 @@ sub render_changelog {
             $version = $self->zilla->version;
         }
 
-		my $tag_line = $self->zilla->name.' ('.$version.') stable; urgency=low';
+		my $tag_line = $self->package_name.' ('.$version.') '.$self->dist_name.'; urgency=low';
 		$changelog .= (
 			"$tag_line\n"
 		);
@@ -36,7 +48,7 @@ sub render_changelog {
 	        unless ($change->description =~ /^\s/) {
                 $changelog .= fill("    ", "    ", $change->description)."\n\n";
             }
-            $changelog .= ' -- '.$change->author_name.' <'.$change->author_email.'>  '.$change->date."\n\n";
+            $changelog .= ' -- '.$change->author_name.' <'.$change->author_email.'>  '.DateTime::Format::Mail->format_datetime($change->date)."\n\n";
 
 	    }
 	}
@@ -51,6 +63,8 @@ sub render_changelog {
     tag_regexp = ^\d+\.\d+$
     file_name = debian/changelog
     wrap_column = 72
+    dist_name = squeeze # defaults to stable
+    package_name = my-package # required!!
 
 =head1 DESCRIPTION
 

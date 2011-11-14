@@ -1,0 +1,5 @@
+Revision history for Dist-Zilla-Plugin-ChangelogFromGit-Debian
+
+{{$NEXT}}
+    - Use @GPHAT plugin bundle for dzil
+    - Add dist_name config option

@@ -58,13 +58,13 @@ sub render_changelog {
 
 =head1 SYNOPSIS
 
-    [ChangelogFromGit::Debian]
-    max_age = 365
-    tag_regexp = ^\d+\.\d+$
-    file_name = debian/changelog
-    wrap_column = 72
-    dist_name = squeeze # defaults to stable
-    package_name = my-package # required!!
+    #    [ChangelogFromGit::Debian]
+    #    max_age = 365
+    #    tag_regexp = ^\d+\.\d+$
+    #    file_name = debian/changelog
+    #    wrap_column = 72
+    #    dist_name = squeeze # defaults to stable
+    #    package_name = my-package # required!!
 
 =head1 DESCRIPTION
 

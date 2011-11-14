@@ -13,6 +13,7 @@ version 0.03
     tag_regexp = ^\d+\.\d+$
     file_name = debian/changelog
     wrap_column = 72
+    dist_name = squeeze # defaults to stable
     package_name = my-package # required!!
 
 # DESCRIPTION

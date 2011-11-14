@@ -1,5 +1,7 @@
 Revision history for Dist-Zilla-Plugin-ChangelogFromGit-Debian
 
 {{$NEXT}}
+
+0.04 Nov 14 2011
     - Use @GPHAT plugin bundle for dzil
     - Add dist_name config option

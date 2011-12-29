@@ -1,6 +1,8 @@
 Revision history for Dist-Zilla-Plugin-ChangelogFromGit-Debian
 
 {{$NEXT}}
+
+0.05 Dec 29 2011
     - Default package name to lc($self->zilla->name) to match other plugins
 
 0.04 Nov 14 2011

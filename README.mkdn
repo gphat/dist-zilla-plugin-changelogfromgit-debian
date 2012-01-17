@@ -4,7 +4,7 @@ Dist::Zilla::Plugin::ChangelogFromGit::Debian - Debian formatter for Changelogs
 
 # VERSION
 
-version 0.04
+version 0.05
 
 # SYNOPSIS
 
@@ -14,13 +14,23 @@ version 0.04
     #    file_name = debian/changelog
     #    wrap_column = 72
     #    dist_name = squeeze # defaults to stable
-    #    package_name = my-package # required!!
+    #    package_name = my-package # defaults to lc($self->zilla->name)
 
 # DESCRIPTION
 
 Dist::Zilla::Plugin::ChangelogFromGit::Debian extends
 [Dist::Zilla::Plugin::ChangelogFromGit](http://search.cpan.org/perldoc?Dist::Zilla::Plugin::ChangelogFromGit) to create changelogs acceptable
 for Debian packages.
+
+# ATTRIBUTES
+
+## dist_name
+
+The distribution name for this package.
+
+## package_name
+
+The package name for this package.
 
 # AUTHOR
 

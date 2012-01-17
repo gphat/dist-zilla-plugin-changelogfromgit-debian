@@ -1,6 +1,8 @@
 Revision history for Dist-Zilla-Plugin-ChangelogFromGit-Debian
 
 {{$NEXT}}
+    - Add leading asterisk to change lines and indent additional lines past
+      the first-lines asterisk. Refs IIOSS-26
 
 0.05 Dec 29 2011
     - Default package name to lc($self->zilla->name) to match other plugins

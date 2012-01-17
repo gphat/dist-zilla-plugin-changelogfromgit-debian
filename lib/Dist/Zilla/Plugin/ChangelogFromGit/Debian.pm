@@ -62,7 +62,7 @@ sub render_changelog {
 	    foreach my $change (@{ $release->changes }) {
 	        
 	        unless ($change->description =~ /^\s/) {
-                $changelog .= fill("    ", "    ", $change->description)."\n\n";
+                $changelog .= fill("  ", "    ", '* '.$change->description)."\n\n";
             }
             $changelog .= ' -- '.$change->author_name.' <'.$change->author_email.'>  '.DateTime::Format::Mail->format_datetime($change->date)."\n\n";
 

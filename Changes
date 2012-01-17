@@ -1,6 +1,8 @@
 Revision history for Dist-Zilla-Plugin-ChangelogFromGit-Debian
 
 {{$NEXT}}
+
+0.06 Jan 17 2012
     - Add leading asterisk to change lines and indent additional lines past
       the first-lines asterisk. Refs IIOSS-26
 

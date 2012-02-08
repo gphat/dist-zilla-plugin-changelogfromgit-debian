@@ -29,7 +29,7 @@ The maintainer email for this package.
 has 'maintainer_email' => (
     is => 'rw',
     isa => 'Str',
-    required => 1
+    default => 'cpan@example.com'
 );
 
 =attr maintainer_name
@@ -41,7 +41,7 @@ The maintainer name for this package.
 has 'maintainer_name' => (
     is => 'rw',
     isa => 'Str',
-    required => 1
+    default => 'CPAN Author'
 );
 
 =attr package_name

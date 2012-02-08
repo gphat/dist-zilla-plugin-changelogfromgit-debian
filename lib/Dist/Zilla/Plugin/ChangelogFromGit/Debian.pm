@@ -83,13 +83,16 @@ sub render_changelog {
 			"$tag_line\n"
 		);
 
+        my $firstchange = undef;
 	    foreach my $change (@{ $release->changes }) {
-	        
+	        unless(defined($firstchange)) {
+	            $firstchange = $change;
+	        }
 	        unless ($change->description =~ /^\s/) {
                 $changelog .= fill("  ", "    ", '* '.$change->description)."\n";
             }
 	    }
-        $changelog .= "\n -- ".$change->author_name.' <'.$change->author_email.'>  '.DateTime::Format::Mail->format_datetime($change->date)."\n\n";
+        $changelog .= "\n -- ".$self->maintainer_name.' <'.$self->maintainer_email.'>  '.DateTime::Format::Mail->format_datetime($firstchange->date)."\n\n";
 	}
 	
 	return $changelog;

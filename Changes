@@ -1,6 +1,8 @@
 Revision history for Dist-Zilla-Plugin-ChangelogFromGit-Debian
 
 {{$NEXT}}
+
+0.07 Feb 8 2012
     - Add maintainer email and name as Debian doesn't like multiple folks
       being attributed. This should clean up a lot of warnings in debuild's
       processing of changelogs. Defaults to CPAN Author <cpan@example.org>

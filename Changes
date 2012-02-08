@@ -2,7 +2,8 @@ Revision history for Dist-Zilla-Plugin-ChangelogFromGit-Debian
 
 {{$NEXT}}
     - Add maintainer email and name as Debian doesn't like multiple folks
-      being attributed
+      being attributed. This should clean up a lot of warnings in debuild's
+      processing of changelogs. Defaults to CPAN Author <cpan@example.org>
 
 0.06 Jan 17 2012
     - Add leading asterisk to change lines and indent additional lines past

@@ -20,6 +20,30 @@ has 'dist_name' => (
     default => 'stable'
 );
 
+=attr maintainer_email
+
+The maintainer email for this package.
+
+=cut
+
+has 'maintainer_email' => (
+    is => 'rw',
+    isa => 'Str',
+    required => 1
+);
+
+=attr maintainer_name
+
+The maintainer name for this package.
+
+=cut
+
+has 'maintainer_name' => (
+    is => 'rw',
+    isa => 'Str',
+    required => 1
+);
+
 =attr package_name
 
 The package name for this package.
@@ -62,11 +86,10 @@ sub render_changelog {
 	    foreach my $change (@{ $release->changes }) {
 	        
 	        unless ($change->description =~ /^\s/) {
-                $changelog .= fill("  ", "    ", '* '.$change->description)."\n\n";
+                $changelog .= fill("  ", "    ", '* '.$change->description)."\n";
             }
-            $changelog .= ' -- '.$change->author_name.' <'.$change->author_email.'>  '.DateTime::Format::Mail->format_datetime($change->date)."\n\n";
-
 	    }
+        $changelog .= "\n -- ".$change->author_name.' <'.$change->author_email.'>  '.DateTime::Format::Mail->format_datetime($change->date)."\n\n";
 	}
 	
 	return $changelog;

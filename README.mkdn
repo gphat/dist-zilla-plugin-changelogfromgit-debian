@@ -4,7 +4,7 @@ Dist::Zilla::Plugin::ChangelogFromGit::Debian - Debian formatter for Changelogs
 
 # VERSION
 
-version 0.06
+version 0.07
 
 # SYNOPSIS
 
@@ -27,6 +27,14 @@ for Debian packages.
 ## dist_name
 
 The distribution name for this package.
+
+## maintainer_email
+
+The maintainer email for this package.
+
+## maintainer_name
+
+The maintainer name for this package.
 
 ## package_name
 

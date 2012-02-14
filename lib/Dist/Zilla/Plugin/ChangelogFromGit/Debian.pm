@@ -110,7 +110,7 @@ sub render_changelog {
 	    }
 	    if($release->has_no_changes) {
             $firstchange = Software::Release::Change->new(
-                description => 'no changes'
+                description => 'no changes',
                 date => DateTime->now
             );
         }

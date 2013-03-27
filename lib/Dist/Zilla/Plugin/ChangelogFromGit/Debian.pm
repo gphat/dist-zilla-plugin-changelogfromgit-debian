@@ -42,7 +42,7 @@ The maintainer email for this package.
 has 'maintainer_email' => (
     is => 'rw',
     isa => 'Str',
-    default => 'cpan@example.com'
+    default => defined($ENV{'DEBEMAIL'}) ? $ENV{'DEBEMAIL'} : 'cpan@example.com'
 );
 
 =attr maintainer_name
@@ -54,7 +54,7 @@ The maintainer name for this package.
 has 'maintainer_name' => (
     is => 'rw',
     isa => 'Str',
-    default => 'CPAN Author'
+    default => defined($ENV{'DEBFULLNAME'}) ? $ENV{'DEBFULLNAME'} : 'CPAN Author'
 );
 
 =attr package_name

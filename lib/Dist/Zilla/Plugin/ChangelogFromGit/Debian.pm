@@ -13,6 +13,8 @@ use Text::Wrap qw(wrap fill $columns $huge);
 If true then an empty head is allowed. Since this module converts head to
 the current dzil version, this might be useful to you for some reason.
 
+Default value: TRUE.
+
 =cut
 
 has 'allow_empty_head' => (
@@ -24,6 +26,8 @@ has 'allow_empty_head' => (
 =attr dist_name
 
 The distribution name for this package.
+
+Default value: 'stable'.
 
 =cut
 
@@ -37,6 +41,8 @@ has 'dist_name' => (
 
 The maintainer email for this package.
 
+Default value: $ENV{'DEBEMAIL'} // 'cpan@example.com'.
+
 =cut
 
 has 'maintainer_email' => (
@@ -48,6 +54,8 @@ has 'maintainer_email' => (
 =attr maintainer_name
 
 The maintainer name for this package.
+
+Default value: $ENV{'DEBFULLNAME'} // 'CPAN Author'.
 
 =cut
 

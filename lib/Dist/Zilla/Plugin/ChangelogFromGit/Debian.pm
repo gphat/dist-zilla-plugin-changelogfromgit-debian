@@ -81,6 +81,30 @@ has 'package_name' => (
     }
 );
 
+=head2 _build_id
+
+Build identifier for this package.
+
+Default value: $ENV{'BUILD_ID'} // 0.
+
+=cut
+
+has _build_id => (
+	is      => 'ro',
+	isa     => 'Str',
+	lazy    => 1,
+	builder => '_build__build_id',
+);
+
+sub _build__build_id {
+	my $self = shift;
+
+	my $build = ( defined $ENV{BUILD_ID} ) ? $ENV{BUILD_ID} : 0;
+	die "Invalid build identifier used" unless $build =~ m/^[a-zA-Z0-9]+$/;
+
+	return $build;
+}
+
 sub render_changelog {
     my ($self) = @_;
 
@@ -101,6 +125,8 @@ sub render_changelog {
         if($version eq 'HEAD') {
             $version = $self->zilla->version;
         }
+
+		$version .= '.' . $self->_build_id if $self->_build_id;
 
 		my $tag_line = $self->package_name.' ('.$version.') '.$self->dist_name.'; urgency=low';
 		$changelog .= (

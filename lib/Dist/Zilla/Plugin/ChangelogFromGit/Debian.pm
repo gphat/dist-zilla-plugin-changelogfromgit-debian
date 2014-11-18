@@ -100,6 +100,9 @@ sub render_changelog {
         my $version = $release->version;
         if($version eq 'HEAD') {
             $version = $self->zilla->version;
+        } else {
+            my $tag_regexp = $self->tag_regexp();
+            $version =~ s/$tag_regexp/$1/;
         }
 
 		my $tag_line = $self->package_name.' ('.$version.') '.$self->dist_name.'; urgency=low';

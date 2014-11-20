@@ -124,6 +124,9 @@ sub render_changelog {
         my $version = $release->version;
         if($version eq 'HEAD') {
             $version = $self->zilla->version;
+        } else {
+            my $tag_regexp = $self->tag_regexp();
+            $version =~ s/$tag_regexp/$1/;
         }
 
 		$version .= '.' . $self->_build_id if $self->_build_id;
